@@ -1,0 +1,10 @@
+a git "upload" or "update" is called a "push"
+
+this is how to do a push
+
+1. add your changes to the commit
+2. add a message to the commit and make the commit
+3. push the commit to remote
+
+
+git add .
