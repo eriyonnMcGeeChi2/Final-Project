@@ -9,15 +9,12 @@
     <link rel="stylesheet" href="style.css">
     <script defer src="script.js"> </script>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"><!--Font for cleaner strreets-->>
   </head>
-
+  
 <body class=".hidden">
   
-  <!------------------------------------------------------------------------------------------------>
-  <!-----Navigation button-->
+  <!-----Navigation button / Header ----->
   <nav>
     <input type="checkbox" id="sidebar-active">
     <label for="sidebar-active" class="open-sidebar-button">
@@ -31,77 +28,151 @@
       </label>
 
 
-      <a class="home-link" href="index.html">Home</a>
-      <a href="#">About</a>
-      <a href="#">Products</a>
+      <a class="home-link" href="/">Home</a>
+      <a href="#about-section">About</a>
+      <a href="#products">Products</a>
       <a href="#">Contact</a>
-      <a href="login.html">Login</a>
+      <a href="/login">Login</a>
 
     </div>
   </nav>
 
   
-  <!--------------------------------------------------------------------->
+  
   <!--------------------------------Home Page----------------------------------->
- <img src="unamed1.jpg" class="home-image">
+ <img src="Images/unnamed1.jpg" class="home-image">
   <section class="home">
     <div class="text-box">
       <h1>Cleaner Streets</h1>
       <h1>Creating Cleaner neighborhoods</h1>
-      <p class="home-paragragh"> Cleaner Streets revitalizes communities by creating cleaner, healthier, and safer neighborhoods. By providing cleaner neighborhoods, we create a better environment for all. So join us as we begin our journey.
-      </p>
       
+      <p class="home-paragragh"> Cleaner Streets is an AI robotics company that identifies and tracks trash in communities, promoting cleanliness through an engaging and interactive experience. Join us in transforming communities.
+        <p class="home-paragragh">Welcome, {{first_name}} {{last_name}}!</p>
+      </p>
       <span class="btn-box">
           <button type="button" class="btn">Start Now</button>
           <button type="button" class="btn">Contact Us</button>
       </span>
-
   </section>
-
-<!--------------------------------------------------------------------->
-
-  <div class="gradient1"></div>
-  
-<!--------------------------------------------------------------------->
 <!------------------------------Information / About US----------------------------------->
 
-
-  <section class="mission">
+  <section class="mission" id="about-section">
     <div class="mission-box">
-      <ig src="unnamed3.jpg" class="v-image1">
-      <h2> Our Mission </h2>
-        <p class="mission-paragragh"> We’re tranforming communities by creating cleaner, healthier communities one neighborhood at a time. Cleaner Streets empowers residents through compensated cleanups and reinvestment into their community, creating a better place to live, work, and play. 
+
+      <h2> Who are we? </h2>
+        <p class="mission-paragragh"> Cleaner Streets is a non-profit organization that aims to help keep communities clean. By deploying autonomous AI robots that detect and map trash in communities in real-time, we can quickly and efficiently remove trash within communities. 
+  
       </p>
     </div>
-  
-  
+
     <div class="aboutus-box">
-      <h3> Our Service </h3>
-        <p class="aboutus-paragragh"> Cleaner Streets provide a way for people to earn money by simply cleaning up neighborhoods, creating more cleaner and nicer living conditions, people can access this via website or application. </p>
-    </div>
-
-
+      <h3 id="products"> Our Robots </h3>
+        <p class="aboutus-paragragh"> CS-BOTS are fully autonomous robots designed to scan and map trash accumulation within communities. They are equipped with advanced technology that allows them to navigate all terrains, collect trash, and deposit it at designated drop-off points.
+        </p> 
+        <video src="Images/Robot.mp4" type="video/mp4" class="Side-image2" controls autoplay>
+        </video>
+      </div>
       <div class="work-box">
-        <h4> How does it work? </h4>
-          <p class="work-paragragh"> We will have organizers or managers who will facilitate people who have signed up, keeping a log of names and allowing for pay. You just sign up, look for any available or upcoming cleaning days and a time and location will be provided. </p>
+          <!----Leader Board--->
+        <div class="leaderboard-widget">
+        <div class="leaderboard-title">Leaderboard</div>
+        <ul class="leaderboard-list" id="leaderboard">
+          <li class="leaderboard-item active">
+            <span class="rank">1</span>
+            <span class="player">Hyde Park</span>
+            <span class="score"><span class="score-value">    </span></span>
+          </li>
+          <li class="leaderboard-item">
+            <span class="rank">2</span>
+            <span class="player">Bronzeville</span>
+            <span class="score"><span class="score-value">    </span></span>
+          </li>
+          <li class="leaderboard-item">
+            <span class="rank">3</span>
+            <span class="player">Englewood</span>
+            <span class="score"><span class="score-value">   </span></span>
+          </li>
+          <li class="leaderboard-item">
+            <span class="rank">4</span>
+            <span class="player">Roseland</span>
+            <span class="score"><span class="score-value">    </span></span>
+          </li>
+        </ul>
+  
+  
+        <script>
+          // Highlight row on click, increase score on click (demo)
+          const leaderboard = document.getElementById('leaderboard');
+          leaderboard.addEventListener('click', function(e) {
+            let item = e.target.closest('.leaderboard-item');
+            if (!item) return;
+            leaderboard.querySelectorAll('.leaderboard-item').forEach(li => li.classList.remove('active'));
+            item.classList.add('active');
+          });
+        
+          leaderboard.querySelectorAll('.score-value').forEach((el) => {
+            el.addEventListener('click', function(e) {
+              e.stopPropagation();
+              let score = +el.textContent.replace(/,/g, '');
+              score += 1;
+              el.textContent = score.toLocaleString();
+            });
+          });
+        </script>
+</div>
+        <h4> Fun & Engaging  </h4>
+          <p class="work-paragragh">Our tracking system encourages cleanliness through an engaging and interactive experience. The leaderboard fosters a competitive and enjoyable way to promote cleanliness within communities.    </p>
     </div>
 
+    <div class="Network">
+      <img src="" class="Side-image4">
+      <p class="Network-title"> Our Networt </p>
+        <p class="Network-paragragh">We partner with local businesses and government agencies to support communities. By submitting a request to your local government, you can help ensure Cleaner Streets.
+        </p>
+  </div>
 </section>
 
-    
-  <!--------------------------------------------------------------------->
+<!------------------------------Step-by-step Process ----------------------------------->
+<section id="process-section" class="process-section">
+<div class="process-box">
+  <h5> A Simple, Powerful Process</h5>
+  <p class="process-paragraph">Our system makes community cleaning intelligent and efficient</p>
+  <div class="process-grid">
+      
+    <div class="process-card">
+        <div class="process-icon">1</div>
+        <h6>Scan & Detect</h6>
+        <p>Our robots autonomously patrol urban areas using advanced computer vision to identify and classify litter.</p>
+      </div>
+  
+      <div class="process-card">
+        <div class="process-icon">2</div>
+        <h6>Track & Map</h6>
+        <p>All data is sent to our cloud platform, creating real-time maps of litter hotspots for targeted cleaning.</p>
+      </div>
+  
+      <div class="process-card">
+        <div class="process-icon">3</div>
+        <h6>Collect & Recycle</h6>
+        <p>The robot collects the trash, sorts it, and brings it back to base for responsible recycling and disposal.</p>
+      </div>
+  
+      <div class="process-card">
+        <div class="process-icon">4</div>
+        <h6>Engage & Reward</h6>
+        <p>Through our app, communities can track progress, report problem areas, and earn rewards for their involvement.</p>
+      </div>
+
+
+    </div>
+  </div>
+</section>
 <!--------------------------------Slider--------------------------------------------->
-
-
-  <section class="slider-box">
-    <section class="gradient2"></section>
+<section class="slider-box">
   <div class="slider">
-
     <div class="list">
-
       <div class="item">
-        <img src="unnamed11.jpg" alt="">
-
+        <img src="Images/unnamed11.jpg" alt="">
         <div class="content">
           <div class="hidden">
           <div class="title"> Our </div>
@@ -115,7 +186,7 @@
       </div>
 
       <div class="item">
-        <img src="unnamed13.jpg" alt="">
+        <img src="Images/unnamed13.jpg" alt="">
 
         <div class="content">
           <div class="title">From,</div>
@@ -128,7 +199,7 @@
       </div>
 
       <div class="item">
-        <img src="unnamed14.jpg" alt="">
+        <img src="Images/unnamed14.jpg" alt="">
 
         <div class="content">
           <div class="title">To,</div>
@@ -139,7 +210,7 @@
       </div>
 
       <div class="item">
-        <img src="unnamed12.jpg" alt="">
+        <img src="Images/unnamed12.jpg" alt="">
 
         <div class="content">
           <div class="title">There is,</div>
@@ -153,19 +224,19 @@
     <div class="thumbnail">
 
       <div class="item">
-        <img src="unnamed11.jpg" alt="">  
+        <img src="Images/unnamed11.jpg" alt="">  
       </div>
 
       <div class="item">
-        <img src="unnamed13.jpg" alt="">  
+        <img src="Images/unnamed13.jpg" alt="">  
       </div>
 
       <div class="item">
-        <img src="unnamed14.jpg" alt="">  
+        <img src="Images/unnamed14.jpg" alt="">  
       </div>
 
       <div class="item">
-        <img src="unnamed12.jpg" alt="">  
+        <img src="Images/unnamed12.jpg" alt="">  
       </div>
 
     </div>
@@ -177,78 +248,102 @@
     </div>
   </div>
 
-    <!--------------------------------------------------------------------->
     <!----------------------------------------------------------------------------->
 
 <section class="jobs">
-<div class="job-box">
-            <h5> We Provide </h5>
-              <p class="job-paragragh">
-                • Individuals: Employment oppurtunities through, management positions, our beautification projects and waste managment <br>
-                
-                <br>• Neighborhoods: Cleaner envirmoments, removing litter and debris, creating safer, and more attractive living spaces.<br>
-                
-                <br>• For The Environment: Taking collected waste from cleanups and recycl materials into new products like clothing, while other items are repurposed for community projects and educational initiatives.
-              </p>
-</div>
+   </section>
 
 
-  <div class="thread-box">
-            <h6> Thread Cycling </h6>
-              <p class="thread-paragragh">  Our Threadcycling process transforms waste into fabric <br> 
 
-                <br> <br>• Our company collects waste <br>
-                • The waste is transferred to a recycling facility <br>
-                • The waste is seperated and broken down <br>
-                • The waste that was broken down is turned into polyester <br>
-                • That polyester is then used to create new clothing <br>
-              </p>
+
+    <!-------------Footer ----------------->
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <div class="custom-footer">
+      <div class="footer-section about">
+        <div class="footer-logo">
+          <span>Cleaner Streets</span>
         </div>
+        <div class="footer-desc">
+          Let's create cleaner neighborhoods together!
+        </div>
+      </div>
+      <div class="footer-section office">
+        <div class="footer-label">
+          <span><b>Contact</b></span>
+          <span class="footer-underline"></span>
+        </div>
+        <div class="footer-office-text">
+          I Am Eriyonn McGee<br>
+        </div>
+        <a href="mailto:avinashdm@outlook.com" class="footer-mail">Emcgee6@icloud.com</a>
+        <div class="footer-phone">+1 (773)641-6126</div>
+      </div>
+      <div class="footer-section links">
+        <div class="footer-label">
+          <span><b>Links</b></span>
+          <span class="footer-underline"></span>
+        </div>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Features</a></li>
+          <li><a href="#">Contacts</a></li>
+        </ul>
+      </div>
+      <div class="footer-section newsletter">
+        <div class="footer-label">
+          <span><b>Newsletter</b></span>
+          <span class="footer-underline"></span>
+        </div>
+        <form class="newsletter-form" autocomplete="off" onsubmit="return false;">
+          <span class="material-icons email-icon">mail_outline</span>
+          <input type="email" placeholder="Enter your email id" required>
+          <button type="submit" class="arrow-btn" title="Subscribe">
+            <span class="material-icons">arrow_forward</span>
+          </button>
+        </form>
+        <div class="footer-social-icons">
+          <button class="icon-btn" title="Facebook"> <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+            <g transform="translate(25.6,25.6) scale(0.8,0.8)"><g fill="#000000" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M25,3c-12.15,0 -22,9.85 -22,22c0,11.03 8.125,20.137 18.712,21.728v-15.897h-5.443v-5.783h5.443v-3.848c0,-6.371 3.104,-9.168 8.399,-9.168c2.536,0 3.877,0.188 4.512,0.274v5.048h-3.612c-2.248,0 -3.033,2.131 -3.033,4.533v3.161h6.588l-0.894,5.783h-5.694v15.944c10.738,-1.457 19.022,-10.638 19.022,-21.775c0,-12.15 -9.85,-22 -22,-22z"></path></g></g></g>
+            </svg></button>
 
-  <div class="expand-box">
-      <h7> Expansion </h7>
-        <p class="expand-paragragh">
-
-          <br> Revenue Generation: <br>
-          • Partnerships with local governments or businesses <br>
-          • Corporate sponsorships to support cleaning initiatives <br>
-          • Grants from environmental or community organizations <br>
-
-          <br> Scalability: Creating franchising or partnering with other cities to sculpt and expand the business reaching more <br>
-
-
+          <button class="icon-btn" title="Twitter"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+            <g transform="translate(25.6,25.6) scale(0.8,0.8)"><g fill="#000000" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M11,4c-3.866,0 -7,3.134 -7,7v28c0,3.866 3.134,7 7,7h28c3.866,0 7,-3.134 7,-7v-28c0,-3.866 -3.134,-7 -7,-7zM13.08594,13h7.9375l5.63672,8.00977l6.83984,-8.00977h2.5l-8.21094,9.61328l10.125,14.38672h-7.93555l-6.54102,-9.29297l-7.9375,9.29297h-2.5l9.30859,-10.89648zM16.91406,15l14.10742,20h3.06445l-14.10742,-20z"></path></g></g></g>
+            </svg></button>
           
-        </p>
-  </div>
-  
-    </section>
-
-
-
-
-    <section class="lastthing"> Create A Cleaner Neighborhood With <br><span class="highlight">Cleaner Streets</span>
+          <button class="icon-btn" title="Instagram"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+            <g transform="translate(25.6,25.6) scale(0.8,0.8)"><g fill="#000000" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(8.53333,8.53333)"><path d="M9.99805,3c-3.859,0 -6.99805,3.14195 -6.99805,7.00195v10c0,3.859 3.14195,6.99805 7.00195,6.99805h10c3.859,0 6.99805,-3.14195 6.99805,-7.00195v-10c0,-3.859 -3.14195,-6.99805 -7.00195,-6.99805zM22,7c0.552,0 1,0.448 1,1c0,0.552 -0.448,1 -1,1c-0.552,0 -1,-0.448 -1,-1c0,-0.552 0.448,-1 1,-1zM15,9c3.309,0 6,2.691 6,6c0,3.309 -2.691,6 -6,6c-3.309,0 -6,-2.691 -6,-6c0,-3.309 2.691,-6 6,-6zM15,11c-2.20914,0 -4,1.79086 -4,4c0,2.20914 1.79086,4 4,4c2.20914,0 4,-1.79086 4,-4c0,-2.20914 -1.79086,-4 -4,-4z"></path></g></g></g>
+            </svg></button>
+          
+            <button class="icon-btn" title="Pinterest"><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="100" height="100" viewBox="0,0,256,256">
+            <g transform="translate(25.6,25.6) scale(0.8,0.8)"><g fill="#000000" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt" stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g transform="scale(5.12,5.12)"><path d="M25,2c-12.68213,0 -23,10.31787 -23,23c0,9.88416 6.26758,18.33026 15.03638,21.57697c-0.25256,-2.25159 -0.21295,-5.93903 0.2038,-7.72437c0.39026,-1.677 2.52124,-10.68713 2.52124,-10.68713c0,0 -0.64331,-1.28833 -0.64331,-3.1911c0,-2.99017 1.73242,-5.22119 3.88983,-5.22119c1.83496,0 2.71979,1.37762 2.71979,3.0282c0,1.8457 -1.17346,4.60266 -1.78125,7.15784c-0.5069,2.14093 1.07336,3.88654 3.18365,3.88654c3.82123,0 6.75848,-4.0296 6.75848,-9.84534c0,-5.14758 -3.698,-8.74719 -8.97955,-8.74719c-6.11676,0 -9.70728,4.58856 -9.70728,9.33099c0,1.84735 0.71118,3.82867 1.6001,4.90698c0.17529,0.21332 0.20093,0.39941 0.14886,0.61603c-0.1629,0.67889 -0.52509,2.13928 -0.59705,2.4386c-0.09344,0.39447 -0.31177,0.47632 -0.71863,0.28693c-2.68579,-1.25031 -4.3645,-5.17566 -4.3645,-8.32959c0,-6.78156 4.92682,-13.0108 14.20654,-13.0108c7.45886,0 13.25476,5.31384 13.25476,12.41791c0,7.41003 -4.67291,13.37299 -11.15686,13.37299c-2.17889,0 -4.22638,-1.13202 -4.92676,-2.46918c0,0 -1.07831,4.10486 -1.34045,5.11121c-0.45245,1.74042 -2.38928,5.34601 -3.36157,6.9837c2.22424,0.71851 4.59357,1.11102 7.05377,1.11102c12.68262,0 23,-10.31738 23,-23c0,-12.68213 -10.31738,-23 -23,-23z"></path></g></g></g>
+            </svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <script>
+      // Newsletter form interactivity
+      document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const input = this.querySelector('input[type="email"]');
+        if(input.value) {
+          input.value = '';
+          input.placeholder = 'Subscribed!';
+          setTimeout(()=>input.placeholder="Enter your email id", 1300);
+        }
+      });
     
-    <span class="btn-box2">
-        <button type="button" class="btn2">Join Now </button>
-        
-    </span></section>
-    <!--------------------------------------------------------------------->
-
-      <div class="gradient4"></div>
-
-    <!--------------------------------------------------------------------->
-<!--------------------------------Footer----------------------------------->
+      // Social icon interactivity (demo: highlight on click)
+      document.querySelectorAll('.icon-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          btn.classList.add('active');
+          setTimeout(()=>btn.classList.remove('active'), 400);
+        });
+      });
+    </script>
 
 
 
-
-
-
-
-  
-
-  
-
-  
-</body>
-</html>

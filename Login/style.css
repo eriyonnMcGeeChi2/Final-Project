@@ -1,0 +1,225 @@
+
+html, body {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  font-family: 'Poppins', Arial, sans-serif;
+  /* Blurred animated background with purple gradient and stars */
+  background: linear-gradient(135deg, #ffffff 0%, #000000 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+ 
+  filter: blur(10px) brightness(0.7) saturate(1.1);
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+body::after {
+  /* subtle stars overlay */
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  background:
+    url('https://svgshare.com/i/13Ly.svg') repeat top left; /* Small stars SVG pattern */
+  opacity: 0.18;
+}
+
+.login-container {
+  position: relative;
+  z-index: 2;
+  max-width: 390px;
+  margin: 60px auto 0 auto;
+  background: rgba(125, 122, 131, 0.17);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(216, 223, 0, 0.25); /* Color of the shadow */
+  border: 1.5px solid rgba(255, 255, 255, 0.23);
+  padding: 40px 34px 32px 34px;
+  backdrop-filter: blur(9px);
+  -webkit-backdrop-filter: blur(9px);
+  text-align: center;
+}
+
+.login-container h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 1px;
+  margin-bottom: 36px;
+  text-shadow: 0 2px 8px #0002;
+}
+
+.input-box {
+  width: 80%;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 100%;
+}
+
+#login-form input[type="text"], #login-form input[type="password"] {
+  width: 100%;
+  padding: 15px 46px 15px 18px;
+  border-radius: 40px;
+  border: 1.5px solid rgba(255,255,255,0.33);
+  background: rgba(255,255,255,0.09);
+  color: #fff;
+  font-size: 1.09em;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+  box-shadow: 0 2px 8px #0001;
+}
+
+#login-form input[type="text"]:focus,
+#login-form input[type="password"]:focus {
+  border: 1.5px solid #fff;
+  background: rgba(255,255,255,0.18);
+  box-shadow: 0 2px 12px #fff2;
+}
+
+.input-box {
+  position: relative;
+}
+
+/* Icon inside input */
+#login-form input[type="text"] + .input-icon,
+#login-form input[type="password"] + .input-icon {
+  position: absolute;
+  right: -40px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  pointer-events: none;
+  font-size: 1.45em;
+  opacity: 0.82;
+}
+
+#login-form input[name="username"] + .input-icon {
+  content: '';
+}
+
+#login-form input[name="password"] + .input-icon {
+  content: '';
+}
+
+/* For icon placement */
+.input-box {
+  margin-bottom: 0;
+}
+
+#login-form .form-group {
+  position: relative;
+}
+
+#login-form .form-group input {
+  padding-right: 46px;
+}
+
+#login-form .form-group .input-icon {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #fff;
+  font-size: 1.32em;
+  opacity: .82;
+  pointer-events: none;
+}
+
+/* Remember/Forgot Row */
+.remember-forgot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.98em;
+  color: #fff;
+  margin-bottom: 8px;
+  margin-left: 10px;
+  margin-top: -13px;
+}
+
+.remember-forgot a {
+  color: #fff;
+  opacity: 0.82;
+  text-decoration: none;
+  transition: color 0.2s;
+  font-weight: 100;
+  position: absolute;
+  margin-left: 70px;
+  width: 100%;
+}
+
+.remember-forgot a:hover {
+  color: #ffe780;
+}
+
+#login-form .btn {
+  width: 100%;
+  padding: 13px 0;
+  border-radius: 30px;
+  border: none;
+  background: #fff;
+  color: #000000;
+  font-size: 1.15em;
+  font-weight: 700;
+  letter-spacing: .5px;
+  cursor: pointer;
+  margin-top: 5px;
+  margin-left: 30px; /* move login button */
+  margin-bottom: 6px;
+  box-shadow: 0 2px 12px #fff2;
+  transition: background 0.22s, color 0.22s;
+}
+
+#login-form .btn:hover {
+  background: #ab0101; /* Color inside the box */
+  color: #fff;
+}
+
+.register-link {
+  margin-top: 18px;
+  font-size: 1em;
+  color: #fff;
+  margin-left: 50px;
+  width: 90%;
+}
+
+.register-link a {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.register-link a:hover {
+  color: #ffe780;
+}
+
+#error-message {
+  min-height: 18px;
+  font-size: 1em;
+  margin-bottom: 4px;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .login-container {
+    padding: 23px 7vw;
+    max-width: 98vw;
+  }
+}

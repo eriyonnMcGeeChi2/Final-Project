@@ -43,25 +43,3 @@ function moveSlider(direction) {
         }
     }, {once: true}) // Remove the event listener after it's triggered once
 }
-
-
-
-
-
-
-
-
-const observer = new IntersectionObserver ((entries) => {
-entries.forEach((entry) => {
-console.log(entry)
-if (entry.isIntersecting) {
-entry.target.classList.add('show');
-} else {
-entry.target.classList.remove('show');
-}
-    });
-});
-
-
-const hiddenElements = document.querySelectorAll('.mission-box, .aboutus-box, .work-box, .job-box, .thread-box, .expand-box' );
-hiddenElements.forEach((el) => observer.observe (el));
