@@ -1,112 +1,98 @@
 *{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
   }
-  html {
+  body {
     font-size: 15pt;
     background-color: rgb(0, 0, 0);
-    font-family: poppins, segoe UI, Tahoma, sans-serif;
-    padding:0;
-    margin:0;
-    scroll-behavior: smooth;
-  }
-  
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body {
+    font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    line-height: 1.6; 
   }
+
+.image-gradient {
+  position: absolute;
+  top: 0;
+  right: 0;
+  opacity: 0.5;
+  z-index: -2;
+}
+
+.layer-blur {
+  height: 0;
+  width: 30rem;
+  position: absolute;
+  top: 20%;
+  right: 0;
+  box-shadow: 0 0 700px 15px white;
+  rotate: -30deg;
+  z-index: -1;
+}
+  
   /* -----------Navigation Bar----------- */
-  nav {
-    height: 90px;
-    background-color: rgb(255, 255, 255);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    animation: to-bottom 1s ease-in-out;
-    margin-top: -25px;
-    }
+
   .links-container {
-    height: 60px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    overflow: hidden; 
   }
-  nav a {
-    height: 100%;
-    padding: 0 50px;
+  header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
+    padding: 1rem 5rem;
+    z-index: 999;
+  }
+  header .logo {
+    margin: 0;
+    font-size: 3rem;
+    font-weight: 300;
+    font-style: italic;
+    font-family: "Bona Nova SC", serif;
+  }
+  .logo {
     text-decoration: none;
-    color: rgb(0,0,0);
-    font-size: 20px;
-    margin-left: 0x;
-    transition: .3s;
+    color: rgb(255, 255, 255);
   }
-  /* Remember to change it to the line */
+  nav {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    margin-left: -5%;
+    z-index: 999;
+  }
+
+  nav a {
+    font-size: 15px;
+    letter-spacing: 0.1rem;
+    transition: color 0.2s ease;
+    color: inherit;
+    text-decoration: none;
+  }
+
   nav a:hover {
-    color: rgb(255,30,55);
-    transition: color 0.5s ease-in-out;
+    color: rgb(255, 255, 255);
   }
-  nav .home-link {
-    margin-right: auto;
+
+  .btn-signing {
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    padding: 0.8rem 2rem;
+    border-radius: 50px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease;
+    cursor: pointer;
+    text-decoration: none;
   }
-  nav svg {
-    fill: rgb(0, 0, 0);
-  }
-  #sidebar-active {
-    display: none;
-  }
-  .open-sidebar-button, .close-sidebar-button {
-    display: none;
-  }
-  /* Edit this to see how many px the phone version can bix without making things too tight*/
-  @media (max-width: 800px) {
-    .links-container{
-      display: none;
-      flex-direction: column;
-      align-items: flex-start;
-  
-      position: fixed;
-      top: 0;
-      right: -100; 
-      z-index: 10;
-      width: 300px;
-  
-      background-color: rgb(255, 255, 255);
-      box-shadow: -5px 0 5px rgb(0, 0, 0, 0.25);
-      transition: 0.75s ease-out;
-    }
-    nav a {
-      box-sizing: border-box;
-      height: auto;
-      width: 100%;
-      padding: 20px 30px;
-      justify-content: flex-start;
-    }
-    .open-sidebar-button, .close-sidebar-button {
-      display: block;
-      padding: 20px;
-    }
-    #sidebar-active:checked ~ .links-container {
-      padding: 20px;
-      display: flex;
-    }
-    #sidebar-active:checked ~ #overlay {
-      height: 100%;
-      width: 100%;
-      position: fixed;
-      top: 0;
-      left: 0;
-      z-index: 9;
-    }
+  .btn-signing:hover {
+    background-color: rgb(0, 0, 0)
   }
   /* ---------------------------Home page------------------*/
   
@@ -114,7 +100,6 @@
     padding-left: 50px;
     max-width: 100%;
   }
-
 
   .home-image {
     width: 100%;
@@ -186,12 +171,52 @@
     background: transparent;
     box-shadow: none;
   }
-  
- 
-   /* ----------------------------Who Are We?-----------------*/
+     /* -------3D Model------*/
+  .robot-3d {
+    width: 50%;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    margin-top: 0%;
+    right: -50%;
+   z-index: 1000;
+  }
+  /* ------Media Display Tablet/Phone-----*/
+  @media (maxwidth: 1300px) {
+    header {
+      padding: 1rem 0.5rem;
+    }
+    .content {
+      margin-top: 80%;
+      
+    }
+    .robot {
+      scale: 0.8;
+      top: -20%;
+      right: 2%;
+    }
+  }
 
+  @media (max-width: 768px) {
+    header {
+    padding: 1rem 0.1em;
+    }
+    nav{
+    display: none;
+    }
+    header h1 {
+    font-size: 2rem;
+    }
+    .btn-signing{
+    padding: 0.6rem 1.5rem;
+    }
+    .content {
+      margin-top: 100%;
+    }
+  } 
+   /* -------Who Are We?------*/
   .mission {
-    background: rgb(255, 255, 255);
+    background: transparent;
     position: relative;
     width: 100%;
     height: 220vh;
@@ -202,7 +227,7 @@
   }
 
   h2 {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: "Bona Nova SC", serif;
     font-weight: 400;
     font-style: italic;
@@ -215,7 +240,7 @@
     margin: 38px 0;
     font-size: 24px;
     width: 80%;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     padding-left: 0%;
   }
   .Side-image1 {
@@ -234,7 +259,7 @@
     margin-left: 5%;
   }
   h3 {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: "Bona Nova SC", serif;
     font-weight: 400;
     font-style: italic;
@@ -245,7 +270,7 @@
     margin: 38px;
     font-size: 24px;
     width: 40%;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
   }
   .Side-image2 {
     top: 40%;
@@ -265,7 +290,7 @@
   h4 {
     width: 100%;
     overflow: hidden;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     font-family: "Bona Nova SC", serif;
     font-weight: 400;
     font-style: italic;
@@ -278,7 +303,7 @@
     margin: 38px 0;
     font-size: 24px;
     width: 35%;
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
   }
   .Side-image3 {
     top: 60%;
@@ -400,7 +425,7 @@
 
 .Network-title {
   width: 70%;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   font-family: "Bona Nova SC", serif;
   font-weight: 400;
   font-style: italic;
@@ -988,3 +1013,35 @@
   }
 
 
+  #vanta-bg {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -10;
+    background-color: black;
+  }
+
+
+
+
+  .svg-overlay {
+    position: absolute; /* or 'absolute' if you want it scrollable */
+    top: -20%;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none; /* allows clicks through SVG */
+    z-index: -50; /* above background, below modals */
+    background: transparent;
+  }
+  .animated-path {
+    stroke: #888;
+    stroke-width: 4;
+    fill: none;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    transition: stroke .3s;
+  }
+  .animated-path.revealed { stroke: #0d6efd; }

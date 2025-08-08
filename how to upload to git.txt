@@ -8,3 +8,5 @@ this is how to do a push
 
 
 git add .
+git commit -m "<INSERT MESSAGE HERE>"
+git push

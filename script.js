@@ -37,9 +37,10 @@ function moveSlider(direction) {
 
     slider.addEventListener('animationend', function() {
         if(direction === 'next'){
-            slider.classList.remove('next')
+            slider.classList.remove('next')  
         } else {
             slider.classList.remove('prev')
         }
     }, {once: true}) // Remove the event listener after it's triggered once
 }
+
